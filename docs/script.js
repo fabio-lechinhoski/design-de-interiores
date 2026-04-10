@@ -49,6 +49,78 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const desktopLightboxMedia = window.matchMedia("(min-width: 861px)");
+  const lightboxImages = document.querySelectorAll(".gallery-card img");
+
+  function createLightbox() {
+    const overlay = document.createElement("div");
+    overlay.className = "lightbox-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+
+    const closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "lightbox-close";
+    closeButton.setAttribute("aria-label", "Fechar imagem");
+    closeButton.innerHTML = "&times;";
+
+    const image = document.createElement("img");
+    image.alt = "";
+
+    overlay.appendChild(closeButton);
+    overlay.appendChild(image);
+    document.body.appendChild(overlay);
+
+    function closeLightbox() {
+      overlay.classList.remove("active");
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("menu-open");
+      image.removeAttribute("src");
+      image.removeAttribute("alt");
+    }
+
+    function openLightbox(sourceImage) {
+      image.src = sourceImage.currentSrc || sourceImage.src;
+      image.alt = sourceImage.alt || "";
+      overlay.classList.add("active");
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.classList.add("menu-open");
+    }
+
+    closeButton.addEventListener("click", closeLightbox);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && overlay.classList.contains("active")) {
+        closeLightbox();
+      }
+    });
+
+    desktopLightboxMedia.addEventListener("change", (event) => {
+      if (!event.matches && overlay.classList.contains("active")) {
+        closeLightbox();
+      }
+    });
+
+    return { openLightbox };
+  }
+
+  if (lightboxImages.length) {
+    const { openLightbox } = createLightbox();
+
+    lightboxImages.forEach((image) => {
+      image.classList.add("lightbox-enabled");
+      image.addEventListener("click", (event) => {
+        if (!desktopLightboxMedia.matches) return;
+        event.preventDefault();
+        openLightbox(image);
+      });
+    });
+  }
+
   updateHeaderOnScroll();
   window.addEventListener("scroll", updateHeaderOnScroll);
 });

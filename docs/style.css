@@ -843,13 +843,13 @@ nav a.active::after {
 
   nav {
     position: fixed;
-    top: var(--header-height);
+    top: 0;
     right: -100%;
     width: min(360px, 84vw);
-    height: calc(100vh - var(--header-height));
+    height: 100vh;
     background: rgba(255, 252, 248, 0.98);
     backdrop-filter: blur(18px);
-    padding: 32px 26px;
+    padding: calc(var(--header-height) + 12px) 26px 32px;
     border-left: 1px solid var(--color-border);
     transition: right 0.35s ease;
   }
@@ -931,4 +931,57 @@ nav a.active::after {
   .hero-actions {
     align-items: stretch;
   }
+}
+
+.footer-col h3 {
+  color: #ffffff;
+}
+
+.project-link-image img,
+.gallery-card img {
+  cursor: zoom-in;
+}
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 14, 11, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-overlay img {
+  max-width: min(1200px, 100%);
+  max-height: 88vh;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.image-only-card {
+  overflow: hidden;
 }

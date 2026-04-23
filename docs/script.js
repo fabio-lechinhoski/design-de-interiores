@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const lightboxTargets = document.querySelectorAll('.project-link-image img, .gallery-card img');
+  const lightboxTargets = currentPage === 'projetos.html'
+    ? document.querySelectorAll('.project-link-image img, .gallery-card img')
+    : document.querySelectorAll('.gallery-card img');
 
   if (lightboxTargets.length) {
     const overlay = document.createElement('div');

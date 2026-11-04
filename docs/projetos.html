@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projetos | Fábio Lechinhoski</title>
   <meta name="description" content="Portfólio com projetos residenciais e corporativos de Fábio Lechinhoski." />
+  <meta name="theme-color" content="#141413" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projetos | Fábio Lechinhoski — Design de Interiores" />
+  <meta property="og:description" content="Conheça os projetos residenciais e corporativos desenvolvidos por Fábio Lechinhoski." />
+  <meta property="og:image" content="https://fabio-lechinhoski.github.io/design-de-interiores/images/quarto-03.webp" />
+  <meta property="og:url" content="https://fabio-lechinhoski.github.io/design-de-interiores/projetos.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -49,22 +56,55 @@
       </div>
     </section>
 
-    <section class="section project-detail-section" id="escritorio">
+    <div class="portfolio-toolbar" id="portfolio-toolbar">
+      <div class="container portfolio-toolbar-inner">
+        <div class="portfolio-filters" role="group" aria-label="Filtrar projetos por categoria">
+          <button type="button" class="filter-btn active" data-filter="all">
+            Todos <span class="filter-count" data-count-for="all">4</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="residencial">
+            Residencial <span class="filter-count" data-count-for="residencial">3</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="corporativo">
+            Corporativo <span class="filter-count" data-count-for="corporativo">1</span>
+          </button>
+        </div>
+
+        <nav class="portfolio-quick-nav" aria-label="Navegação rápida entre projetos">
+          <span class="quick-nav-label">Ir para:</span>
+          <div class="quick-nav-links" id="quick-nav-links">
+            <a href="#escritorio" class="quick-nav-link" data-project-target="escritorio" data-category="corporativo">Escritório de Advocacia</a>
+            <a href="#residencia" class="quick-nav-link" data-project-target="residencia" data-category="residencial">Casa Serena</a>
+            <a href="#casa-aura" class="quick-nav-link" data-project-target="casa-aura" data-category="residencial">Casa Aura</a>
+            <a href="#suite-grafite" class="quick-nav-link" data-project-target="suite-grafite" data-category="residencial">Suíte Grafite</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <section class="section project-detail-section" id="escritorio" data-category="corporativo" data-title="Escritório de Advocacia">
       <div class="container">
         <div class="project-detail-header">
-          <div>
+          <div class="project-header-title">
             <span class="section-kicker">Corporativo</span>
             <h2>Escritório de Advocacia</h2>
           </div>
-          <p>
-            Ambientes pensados para transmitir sobriedade, elegância e organização,
-            com tons neutros, madeira escura e uma atmosfera profissional acolhedora.
-          </p>
+          <div class="project-header-body">
+            <p class="project-description">
+              Ambientes pensados para transmitir sobriedade, elegância e organização,
+              com tons neutros, madeira escura e uma atmosfera profissional acolhedora.
+            </p>
+            <ul class="project-meta" aria-label="Ficha rápida do projeto">
+              <li><strong>Tipologia</strong> Corporativo</li>
+              <li><strong>Ambientes</strong> Atendimento &amp; Reuniões</li>
+              <li><strong>Proposta</strong> Sobriedade &amp; Elegância</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="gallery-grid gallery-grid-office">
+        <div class="gallery-grid gallery-grid-featured">
           <article class="gallery-card gallery-featured">
-            <img src="images/escritorio-01.png" alt="Sala de atendimento do Escritório de Advocacia" loading="lazy" />
+            <img src="images/escritorio-01.webp" alt="Sala de atendimento do Escritório de Advocacia" loading="lazy" />
             <div class="gallery-caption">
               <h3>Sala de atendimento</h3>
               <p>Linhas limpas, composição sóbria e atmosfera reservada para o atendimento.</p>
@@ -72,7 +112,7 @@
           </article>
 
           <article class="gallery-card">
-            <img src="images/escritorio-02.png" alt="Sala de reuniões do Escritório de Advocacia" loading="lazy" />
+            <img src="images/escritorio-02.webp" alt="Sala de reuniões do Escritório de Advocacia" loading="lazy" />
             <div class="gallery-caption">
               <h3>Sala de reuniões</h3>
               <p>Um ambiente corporativo pensado para clareza visual, conforto e discrição.</p>
@@ -80,7 +120,7 @@
           </article>
 
           <article class="gallery-card">
-            <img src="images/escritorio-03.png" alt="Vista frontal da sala de reuniões do Escritório de Advocacia" loading="lazy" />
+            <img src="images/escritorio-03.webp" alt="Vista frontal da sala de reuniões do Escritório de Advocacia" loading="lazy" />
             <div class="gallery-caption">
               <h3>Perspectiva principal</h3>
               <p>Materiais bem escolhidos e linhas precisas reforçam a identidade sóbria do espaço.</p>
@@ -90,31 +130,43 @@
       </div>
     </section>
 
-    <section class="section section-soft project-detail-section" id="residencia">
+    <section class="section section-soft project-detail-section" id="residencia" data-category="residencial" data-title="Casa Serena">
       <div class="container">
         <div class="project-detail-header">
-          <div>
+          <div class="project-header-title">
             <span class="section-kicker">Residencial</span>
             <h2>Casa Serena</h2>
           </div>
-          <p>
-            Um sobrado marcado por linhas limpas, tons neutros e elementos
-            que equilibram sofisticação, acolhimento e leveza visual.
-          </p>
+          <div class="project-header-body">
+            <p class="project-description">
+              Um sobrado marcado por linhas limpas, tons neutros e elementos
+              que equilibram sofisticação, acolhimento e leveza visual.
+            </p>
+            <ul class="project-meta" aria-label="Ficha rápida do projeto">
+              <li><strong>Tipologia</strong> Residencial (Sobrado)</li>
+              <li><strong>Ambientes</strong> Fachada &amp; Lavabo</li>
+              <li><strong>Proposta</strong> Traços Limpos &amp; Iluminação</li>
+            </ul>
+          </div>
         </div>
 
         <div class="project-subsection">
-          <h3 class="project-subsection-title">Fachada</h3>
-          <div class="gallery-grid gallery-grid-two">
+          <div class="project-subsection-header">
+            <h3 class="project-subsection-title">Fachada</h3>
+            <p class="project-subsection-desc">
+              Volumetria contemporânea valorizada por revestimentos naturais, detalhes ripados e iluminação cênica para o período noturno.
+            </p>
+          </div>
+          <div class="gallery-grid gallery-grid-2 gallery-grid-portrait">
             <article class="gallery-card facade-mobile-clean">
-              <img src="images/fachada-dia-01.png" alt="Fachada diurna da Casa Serena" loading="lazy" />
+              <img src="images/fachada-dia-01.webp" alt="Fachada diurna da Casa Serena" loading="lazy" />
               <div class="gallery-caption">
                 <h3>Fachada — dia</h3>
               </div>
             </article>
 
             <article class="gallery-card facade-mobile-clean">
-              <img src="images/fachada-noite-01.png" alt="Fachada noturna da Casa Serena" loading="lazy" />
+              <img src="images/fachada-noite-01.webp" alt="Fachada noturna da Casa Serena" loading="lazy" />
               <div class="gallery-caption">
                 <h3>Fachada — noite</h3>
               </div>
@@ -123,59 +175,181 @@
         </div>
 
         <div class="project-subsection">
-          <h3 class="project-subsection-title">Ambientes</h3>
-          <div class="gallery-grid gallery-grid-two">
+          <div class="project-subsection-header">
+            <h3 class="project-subsection-title">Lavabo</h3>
+            <p class="project-subsection-desc">
+              Composição suave em tons neutros com marcenaria suspensa, espelho orgânico iluminado e revestimento com textura geométrica.
+            </p>
+          </div>
+          <div class="gallery-grid gallery-grid-2">
             <article class="gallery-card image-only-card">
-              <img src="images/lavabo-02.png" alt="Lavabo da Casa Serena" loading="lazy" />
+              <img src="images/lavabo-02.webp" alt="Bancada e espelho do lavabo da Casa Serena" loading="lazy" />
             </article>
 
             <article class="gallery-card image-only-card">
-              <img src="images/lavabo-03.png" alt="Lavabo da Casa Serena" loading="lazy" />
+              <img src="images/lavabo-03.webp" alt="Revestimento geométrico do lavabo da Casa Serena" loading="lazy" />
             </article>
           </div>
         </div>
       </div>
     </section>
-  
 
-    <section class="section project-detail-section" id="casa-aura">
+    <section class="section project-detail-section" id="casa-aura" data-category="residencial" data-title="Casa Aura">
       <div class="container">
-        <div class="project-detail-header project-placeholder-header">
-          <div>
+        <div class="project-detail-header">
+          <div class="project-header-title">
             <span class="section-kicker">Residencial</span>
             <h2>Casa Aura</h2>
           </div>
+          <div class="project-header-body">
+            <p class="project-description">
+              Interiores pensados para unir a leveza dos tons suaves ao calor da madeira natural,
+              criando espaços práticos, integrados e acolhedores para a rotina diária.
+            </p>
+            <ul class="project-meta" aria-label="Ficha rápida do projeto">
+              <li><strong>Tipologia</strong> Residencial</li>
+              <li><strong>Ambientes</strong> Cozinha, Sala de Estar &amp; Quarto</li>
+              <li><strong>Proposta</strong> Aconchego &amp; Funcionalidade</li>
+            </ul>
+          </div>
         </div>
 
         <div class="project-subsection">
-          <h3 class="project-subsection-title">Cozinha</h3>
-          <p>O contraste entre os tons suaves e o calor da madeira natural cria um ambiente leve, prático e acolhedor.</p>
-          <div class="gallery-grid gallery-grid-two" style="margin-top: 20px;">
+          <div class="project-subsection-header">
+            <h3 class="project-subsection-title">Cozinha</h3>
+            <p class="project-subsection-desc">
+              O contraste entre os tons suaves e o calor da madeira natural cria um ambiente leve, prático e acolhedor.
+            </p>
+          </div>
+          <div class="gallery-grid gallery-grid-2 gallery-grid-portrait">
             <article class="gallery-card image-only-card">
-              <img src="images/cozinha-01.png" alt="Cozinha da Casa Aura" loading="lazy" />
+              <img src="images/cozinha-01.webp" alt="Vista geral da cozinha da Casa Aura" loading="lazy" />
             </article>
 
             <article class="gallery-card image-only-card">
-              <img src="images/cozinha-02.png" alt="Cozinha da Casa Aura" loading="lazy" />
+              <img src="images/cozinha-02.webp" alt="Bancada em L e iluminação natural da cozinha da Casa Aura" loading="lazy" />
             </article>
 
             <article class="gallery-card image-only-card">
-              <img src="images/cozinha-03.png" alt="Cozinha da Casa Aura" loading="lazy" />
+              <img src="images/cozinha-03.webp" alt="Torre quente e marcenaria superior da cozinha da Casa Aura" loading="lazy" />
             </article>
 
             <article class="gallery-card image-only-card">
-              <img src="images/cozinha-04.png" alt="Cozinha da Casa Aura" loading="lazy" />
+              <img src="images/cozinha-04.webp" alt="Perspectiva frontal da bancada e cooktop da Casa Aura" loading="lazy" />
             </article>
           </div>
         </div>
 
         <div class="project-subsection">
-          <h3 class="project-subsection-title">Sala de estar</h3>
-          <p>Uma proposta pensada para trazer conforto e equilíbrio, com tons suaves, madeira em tom mais escuro.</p>
-          <div class="gallery-grid gallery-grid-two" style="margin-top: 20px;">
-            <article class="gallery-card image-only-card">
-              <img src="images/sala-de-estar-01.png" alt="Sala de estar da Casa Aura" loading="lazy" />
+          <div class="project-subsection-header">
+            <h3 class="project-subsection-title">Sala de estar</h3>
+            <p class="project-subsection-desc">
+              Uma proposta pensada para trazer conforto e equilíbrio, com tons suaves e madeira em tom mais escuro.
+            </p>
+          </div>
+          <div class="gallery-grid gallery-grid-1">
+            <article class="gallery-card gallery-card-editorial">
+              <img src="images/sala-de-estar-01.webp" alt="Sala de estar da Casa Aura" loading="lazy" />
+              <div class="gallery-caption">
+                <span class="project-tag">Ambiente Social</span>
+                <h3>Conforto visual e integração</h3>
+                <p>
+                  Painel ripado em madeira escura com iluminação indireta, mobiliário de linhas orgânicas
+                  e pontos sutis de verde nas cortinas e almofadas para criar uma atmosfera serena e convidativa.
+                </p>
+              </div>
             </article>
+          </div>
+        </div>
+
+        <div class="project-subsection">
+          <div class="project-subsection-header">
+            <h3 class="project-subsection-title">Quarto</h3>
+            <p class="project-subsection-desc">
+              A luz natural destaca os volumes durante o dia, enquanto a iluminação embutida transforma o espaço em um refúgio particular à noite.
+            </p>
+          </div>
+          <div class="gallery-grid gallery-grid-2 gallery-grid-portrait">
+            <article class="gallery-card image-only-card">
+              <img src="images/quarto-01.webp" alt="Marcenaria com iluminação embutida e penteadeira do quarto da Casa Aura" loading="lazy" />
+            </article>
+
+            <article class="gallery-card image-only-card">
+              <img src="images/quarto-02.webp" alt="Vista da cama, cabeceira iluminada e pendentes do quarto da Casa Aura" loading="lazy" />
+            </article>
+
+            <article class="gallery-card image-only-card">
+              <img src="images/quarto-03.webp" alt="Perspectiva geral do quarto da Casa Aura com cortina iluminada" loading="lazy" />
+            </article>
+
+            <article class="gallery-card image-only-card">
+              <img src="images/quarto-04.webp" alt="Detalhe da cabeceira estofada e iluminação pontual do quarto da Casa Aura" loading="lazy" />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft project-detail-section" id="suite-grafite" data-category="residencial" data-title="Suíte Grafite">
+      <div class="container">
+        <div class="project-detail-header">
+          <div class="project-header-title">
+            <span class="section-kicker">Residencial</span>
+            <h2>Suíte Grafite</h2>
+          </div>
+          <div class="project-header-body">
+            <p class="project-description">
+              Tons fechados, texturas macias e o calor da madeira se encontram sob uma iluminação pontual acolhedora,
+              transformando a suíte em um espaço perfeito para desacelerar.
+            </p>
+            <ul class="project-meta" aria-label="Ficha rápida do projeto">
+              <li><strong>Tipologia</strong> Residencial</li>
+              <li><strong>Ambiente</strong> Suíte</li>
+              <li><strong>Proposta</strong> Tons Fechados &amp; Acolhimento</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="gallery-grid gallery-grid-5">
+          <article class="gallery-card image-only-card">
+            <img src="images/suite-01.webp" alt="Roupeiro com portas em vidro fumê e iluminação interna na Suíte Grafite" loading="lazy" />
+          </article>
+
+          <article class="gallery-card image-only-card">
+            <img src="images/suite-02.webp" alt="Poltrona de leitura junto à janela e painel de TV na Suíte Grafite" loading="lazy" />
+          </article>
+
+          <article class="gallery-card image-only-card">
+            <img src="images/suite-03.webp" alt="Perspectiva integrando cama estofada, painel de TV e roupeiro na Suíte Grafite" loading="lazy" />
+          </article>
+
+          <article class="gallery-card image-only-card">
+            <img src="images/suite-04.webp" alt="Vista frontal da cama estofada e iluminação pontual na Suíte Grafite" loading="lazy" />
+          </article>
+
+          <article class="gallery-card image-only-card">
+            <img src="images/suite-05.webp" alt="Vista geral da Suíte Grafite banhada por luz natural" loading="lazy" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-content">
+            <span class="section-kicker">Próximo passo</span>
+            <h2>Vamos transformar o seu espaço em um ambiente com identidade?</h2>
+            <p>
+              Entre em contato para conversarmos sobre as suas necessidades e encontrarmos
+              a melhor solução para o seu projeto residencial ou corporativo.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="contato.html" class="btn">Solicitar orçamento</a>
+            <a href="https://bit.ly/3cHmS3p" target="_blank" rel="noopener" class="btn btn-secondary">
+              <i class="fa-brands fa-whatsapp"></i> Conversar no WhatsApp
+            </a>
           </div>
         </div>
       </div>

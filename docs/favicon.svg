@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#141413"/>
+  <rect x="4" y="4" width="56" height="56" rx="7" fill="none" stroke="#8C7355" stroke-width="1.5" stroke-opacity="0.55"/>
+  <text x="50%" y="53%" dominant-baseline="middle" text-anchor="middle" fill="#FAF9F6" font-family="'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="2">FL</text>
+</svg>

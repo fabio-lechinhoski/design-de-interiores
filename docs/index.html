@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fábio Lechinhoski | Design de Interiores</title>
   <meta name="description" content="Portfólio de Fábio Lechinhoski com projetos de interiores residenciais e corporativos." />
+  <meta name="theme-color" content="#141413" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fábio Lechinhoski | Design de Interiores" />
+  <meta property="og:description" content="Projetos de interiores residenciais e corporativos com elegância, conforto e identidade." />
+  <meta property="og:image" content="https://fabio-lechinhoski.github.io/design-de-interiores/images/quarto-03.webp" />
+  <meta property="og:url" content="https://fabio-lechinhoski.github.io/design-de-interiores/" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -39,9 +46,29 @@
 
   <main>
     <section class="hero hero-home">
-      <div class="container hero-content hero-content-centered">
-        <span class="section-kicker">Design de Interiores</span>
-        <h1>Projetos com elegância, conforto e identidade.</h1>
+      <div class="container hero-home-grid">
+        <div class="hero-copy">
+          <span class="section-kicker">Design de Interiores</span>
+          <h1>Projetos com elegância, conforto e identidade.</h1>
+          <p class="hero-lead">
+            Ambientes residenciais e corporativos desenvolvidos com sensibilidade estética,
+            leitura cuidadosa do espaço e soluções sob medida para a sua rotina.
+          </p>
+          <div class="hero-actions">
+            <a href="projetos.html" class="btn">Explorar projetos</a>
+            <a href="contato.html" class="btn btn-secondary">Solicitar atendimento</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <a href="projetos.html#casa-aura" class="hero-showcase-card" aria-label="Ver projeto Casa Aura">
+            <img src="images/quarto-03.webp" alt="Quarto da Casa Aura com iluminação embutida e tons suaves" fetchpriority="high" />
+            <div class="hero-showcase-badge">
+              <span>Destaque Residencial</span>
+              <strong>Casa Aura — Quarto</strong>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -55,7 +82,7 @@
         <div class="project-grid home-project-grid">
           <article class="project-card">
             <a href="projetos.html#escritorio" class="project-image project-link-image">
-              <img src="images/escritorio-02.png" alt="Sala de reuniões do Escritório de Advocacia" loading="lazy" />
+              <img src="images/escritorio-02.webp" alt="Sala de reuniões do Escritório de Advocacia" loading="lazy" />
             </a>
             <div class="project-info">
               <span class="project-tag">Corporativo</span>
@@ -69,7 +96,7 @@
 
           <article class="project-card">
             <a href="projetos.html#residencia" class="project-image project-link-image">
-              <img src="images/fachada-dia-01.png" alt="Fachada diurna da Casa Serena" loading="lazy" />
+              <img src="images/fachada-dia-01.webp" alt="Fachada diurna da Casa Serena" loading="lazy" />
             </a>
             <div class="project-info">
               <span class="project-tag">Residencial</span>
@@ -83,13 +110,27 @@
 
           <article class="project-card">
             <a href="projetos.html#casa-aura" class="project-image project-link-image">
-              <img src="images/cozinha-01.png" alt="Cozinha da Casa Aura" loading="lazy" />
+              <img src="images/cozinha-01.webp" alt="Cozinha da Casa Aura" loading="lazy" />
             </a>
             <div class="project-info">
               <span class="project-tag">Residencial</span>
               <h3>Casa Aura</h3>
               <p>
-                O contraste entre os tons suaves e o calor da madeira natural cria um ambiente leve, prático e acolhedor.
+                O contraste entre os tons suaves e o calor da madeira natural cria ambientes leves, práticos e acolhedores.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a href="projetos.html#suite-grafite" class="project-image project-link-image">
+              <img src="images/suite-04.webp" alt="Suíte Grafite" loading="lazy" />
+            </a>
+            <div class="project-info">
+              <span class="project-tag">Residencial</span>
+              <h3>Suíte Grafite</h3>
+              <p>
+                Tons fechados, texturas macias e o calor da madeira se encontram sob uma iluminação pontual acolhedora,
+                transformando a suíte em um espaço perfeito para desacelerar.
               </p>
             </div>
           </article>
@@ -115,7 +156,28 @@
 
         <div class="image-column">
           <div class="image-frame">
-            <img src="images/lavabo-02.png" alt="Lavabo residencial em tons neutros" loading="lazy" />
+            <img src="images/lavabo-02.webp" alt="Lavabo residencial em tons neutros" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-content">
+            <span class="section-kicker">Próximo passo</span>
+            <h2>Vamos transformar o seu espaço em um ambiente com identidade?</h2>
+            <p>
+              Entre em contato para conversarmos sobre as suas necessidades e encontrarmos
+              a melhor solução para o seu projeto residencial ou corporativo.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="contato.html" class="btn">Solicitar orçamento</a>
+            <a href="https://bit.ly/3cHmS3p" target="_blank" rel="noopener" class="btn btn-secondary">
+              <i class="fa-brands fa-whatsapp"></i> Conversar no WhatsApp
+            </a>
           </div>
         </div>
       </div>

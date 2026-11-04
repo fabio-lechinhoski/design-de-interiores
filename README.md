@@ -12,23 +12,23 @@ O projeto foi desenvolvido com foco em **performance**, **minimalismo arquitetô
 
 ### Principais Funcionalidades
 - **Hero Editorial de Alto Impacto:** Apresentação visual com destaque de projeto e chamadas para ação (CTAs) diretas.
-- **Filtro e Navegação Rápida de Projetos:** Barra *sticky* em `projetos.html` com filtro por categoria (*Todos*, *Residencial*, *Corporativo*), contadores automáticos e índice de salto rápido com *scrollspy*.
+- **Filtro e Navegação Rápida de Projetos:** Barra *sticky* em `projetos.html` com filtro por categoria (*Todos*, *Residencial*, *Corporativo*) e índice de salto rápido com *scrollspy*.
 - **Sistema de Grid Flexível:** Regras inteligentes em CSS Grid para galerias de `1`, `2`, `3`, `4` ou `5+` fotos (incluindo suporte a renders verticais e horizontais sem espaços vazios).
 - **Lightbox Completo por Projeto:** Visualizador de imagens com navegação (*Anterior / Próxima*), suporte a teclado (`←`, `→`, `Esc`), gestos de *swipe* em dispositivos móveis, legendas dinâmicas e contador de slides.
 - **Imagens Otimizadas (`.webp`):** Todos os renders em alta definição convertidos para WebP para máxima nitidez com baixo consumo de dados.
-- **Formulário de Contato Integrado:** Envio direto de mensagens com máscara automática de telefone, *fallback* inteligente para cliente de e-mail e atalho para atendimento via WhatsApp.
+- **Orçamento Direto para WhatsApp:** Formulário em `contato.html` que envia *Nome*, *E-mail*, *Assunto*, *Telefone* e *Mensagem* já formatados diretamente para o WhatsApp.
 - **SEO & Compartilhamento Social:** Meta tags Open Graph (`og:image`, `og:title`, `og:description`) e Favicon em SVG vetorial.
 
 ---
 
-## 🎨 Identidade Visual (*Architectural Warm Stone*)
+## 🎨 Identidade Visual (*Obsidian & Amber — Dark Luxury*)
 
 | Elemento | Especificação |
 | :--- | :--- |
-| **Superfície Principal** | Alabastro (`#FAF9F6`) & Branco Puro (`#FFFFFF`) |
-| **Superfície Secundária** | Pedra Calcária / Limestone (`#F2EFE9`) |
-| **Cor Primária** | Preto Carvão Arquitetônico (`#141413`) |
-| **Cor de Acento** | Bronze Arquitetônico (`#8C7355`) |
+| **Fundo Principal** | Obsidiana / Grafite Profundo (`#0F1012`) |
+| **Superfície de Seção / Elevada** | Carvão Acetinado (`#14161B` & `#181A1F`) |
+| **Cor Primária (Títulos)** | Marfim Puro (`#F4F3EF`) |
+| **Cor de Acento & CTAs** | Âmbar / Ouro Escovado (`#C89D66`) |
 | **Tipografia de Títulos** | [Outfit](https://fonts.google.com/specimen/Outfit) (Google Fonts) |
 | **Tipografia de Corpo / UI** | [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) (Google Fonts) |
 
@@ -63,7 +63,7 @@ design-de-interiores/
 
 ## ➕ Como Adicionar Novos Projetos
 
-Em `docs/projetos.html`, basta inserir uma nova `<section class="section project-detail-section">`. O script se encarrega de atualizar os contadores de categoria, criar o botão na barra de navegação rápida e alternar a cor de fundo automaticamente:
+Em `docs/projetos.html`, basta inserir uma nova `<section class="section project-detail-section">`. O script se encarrega de vincular o projeto ao filtro de categoria, criar o botão na barra de navegação rápida e alternar a cor de fundo automaticamente:
 
 ```html
 <section class="section project-detail-section" id="id-do-projeto" data-category="residencial" data-title="Nome do Projeto">

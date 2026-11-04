@@ -96,49 +96,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const quickNavLinks = Array.from(document.querySelectorAll(".quick-nav-link"));
 
-    // Atualiza contadores das categorias dinamicamente
-    const countBadges = document.querySelectorAll("[data-count-for]");
-    countBadges.forEach((badge) => {
-      const cat = badge.dataset.countFor;
-      if (cat === "all") {
-        badge.textContent = String(projectSections.length);
-      } else {
-        const count = projectSections.filter((sec) => sec.dataset.category === cat).length;
-        badge.textContent = String(count);
-      }
-    });
-
-    function applyFilter(filterValue) {
+    function applyFilter(filterValue, shouldScroll = false) {
       filterButtons.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.filter === filterValue);
+        const isActive = btn.dataset.filter === filterValue;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
       });
 
       let visibleIndex = 0;
+      let firstVisibleSection = null;
+
       projectSections.forEach((section) => {
-        const category = section.dataset.category || "";
+        const category = (section.dataset.category || "").toLowerCase().trim();
         const matches = filterValue === "all" || category === filterValue;
         section.classList.toggle("is-hidden", !matches);
+        section.hidden = !matches;
 
         if (matches) {
+          if (!firstVisibleSection) {
+            firstVisibleSection = section;
+          }
           // Alterna fundo suave (.section-soft) automaticamente entre os projetos visíveis
           section.classList.toggle("section-soft", visibleIndex % 2 === 1);
           visibleIndex++;
+
+          // Garante que os elementos revelados fiquem imediatamente visíveis após filtrar
+          section.querySelectorAll(".reveal-item").forEach((el) => {
+            el.classList.add("is-visible");
+          });
         }
       });
 
       quickNavLinks.forEach((link) => {
-        const linkCategory = link.dataset.category || "";
+        const linkCategory = (link.dataset.category || "").toLowerCase().trim();
         const matches = filterValue === "all" || linkCategory === filterValue;
         link.classList.toggle("is-hidden", !matches);
+        link.hidden = !matches;
       });
 
       updateActiveQuickNavOnScroll();
+
+      if (shouldScroll && firstVisibleSection) {
+        const toolbar = document.getElementById("portfolio-toolbar");
+        const headerHeight = header ? header.offsetHeight : 76;
+        const toolbarHeight = toolbar ? toolbar.offsetHeight : 64;
+        const targetTop =
+          firstVisibleSection.getBoundingClientRect().top +
+          window.scrollY -
+          headerHeight -
+          toolbarHeight +
+          4;
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: "smooth",
+        });
+      }
     }
 
     filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const filterValue = button.dataset.filter || "all";
-        applyFilter(filterValue);
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const filterValue = (button.dataset.filter || "all").toLowerCase().trim();
+        applyFilter(filterValue, true);
       });
     });
 
@@ -358,12 +378,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Máscara e Envio Funcional do Formulário de Contato
+  // Máscara e Envio Direto para WhatsApp no Formulário de Orçamento
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     const phoneInput = contactForm.querySelector('input[name="telefone"]');
-    const submitBtn = document.getElementById("contact-submit-btn");
     const feedbackBox = document.getElementById("form-feedback");
+    const whatsappPhone = "554791501596";
 
     if (phoneInput) {
       phoneInput.addEventListener("input", (event) => {
@@ -382,70 +402,43 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    contactForm.addEventListener("submit", async (event) => {
+    contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
       const formData = new FormData(contactForm);
       const nome = (formData.get("nome") || "").toString().trim();
       const email = (formData.get("email") || "").toString().trim();
-      const telefone = (formData.get("telefone") || "Não informado").toString().trim();
-      const assunto = (formData.get("assunto") || "Atendimento geral").toString().trim();
+      const telefone = (formData.get("telefone") || "").toString().trim();
+      const assunto = (formData.get("assunto") || "").toString().trim();
       const mensagem = (formData.get("mensagem") || "").toString().trim();
 
-      const originalBtnText = submitBtn ? submitBtn.innerHTML : "Enviar mensagem";
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = "Enviando...";
+      const lines = [
+        "Olá, Fábio! Gostaria de solicitar um orçamento.",
+        "",
+        `*Nome:* ${nome}`,
+        `*E-mail:* ${email}`,
+      ];
+
+      if (telefone) {
+        lines.push(`*Telefone:* ${telefone}`);
       }
+      if (assunto) {
+        lines.push(`*Assunto:* ${assunto}`);
+      }
+      if (mensagem) {
+        lines.push("", `*Mensagem:*`, mensagem);
+      }
+
+      const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(lines.join("\n"))}`;
+      const popup = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      if (!popup) {
+        window.location.href = whatsappUrl;
+      }
+
       if (feedbackBox) {
-        feedbackBox.className = "form-feedback";
-        feedbackBox.textContent = "";
-      }
-
-      try {
-        const response = await fetch("https://formsubmit.co/ajax/fabio.lechinhoski@gmail.com", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            Nome: nome,
-            Email: email,
-            Telefone: telefone,
-            Assunto: assunto,
-            Mensagem: mensagem,
-            _subject: `Contato Portfólio: ${assunto} — ${nome}`,
-          }),
-        });
-
-        const result = await response.json();
-        if (response.ok && (result.success === "true" || result.success === true)) {
-          if (feedbackBox) {
-            feedbackBox.className = "form-feedback is-success";
-            feedbackBox.innerHTML =
-              "<strong>Mensagem enviada com sucesso!</strong> Retornarei o seu contato em breve.";
-          }
-          contactForm.reset();
-        } else {
-          throw new Error("Fallback para cliente de e-mail");
-        }
-      } catch (_err) {
-        const mailSubject = encodeURIComponent(`Projeto de Interiores (${assunto}) — ${nome}`);
-        const mailBody = encodeURIComponent(
-          `Olá, Fábio!\n\nNome: ${nome}\nE-mail: ${email}\nTelefone: ${telefone}\nAssunto: ${assunto}\n\nMensagem:\n${mensagem}`
-        );
-        window.location.href = `mailto:fabio.lechinhoski@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-
-        if (feedbackBox) {
-          feedbackBox.className = "form-feedback is-success";
-          feedbackBox.innerHTML =
-            'Preparamos sua mensagem no seu aplicativo de e-mail! Se preferir atendimento imediato, <a href="https://bit.ly/3cHmS3p" target="_blank" rel="noopener">clique aqui para chamar no WhatsApp</a>.';
-        }
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnText;
-        }
+        feedbackBox.className = "form-feedback is-success";
+        feedbackBox.innerHTML =
+          "<strong>Redirecionando para o WhatsApp...</strong> Caso a conversa não abra automaticamente, " +
+          `<a href="${whatsappUrl}" target="_blank" rel="noopener">clique aqui para iniciar o atendimento</a>.`;
       }
     });
   }

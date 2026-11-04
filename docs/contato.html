@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contato | Fábio Lechinhoski</title>
   <meta name="description" content="Entre em contato com Fábio Lechinhoski para solicitar um projeto de interiores." />
-  <meta name="theme-color" content="#141413" />
+  <meta name="theme-color" content="#0F1012" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contato | Fábio Lechinhoski — Design de Interiores" />
   <meta property="og:description" content="Solicite um orçamento ou entre em contato para conversar sobre o seu projeto de interiores." />
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <header class="site-header">
@@ -90,13 +90,9 @@
 
         <div class="contact-form-box">
           <span class="section-kicker">Envie sua mensagem</span>
-          <h2>Solicite um atendimento</h2>
+          <h2>Solicite um orçamento</h2>
 
-          <form action="https://formsubmit.co/fabio.lechinhoski@gmail.com" method="POST" class="contact-form" id="contact-form">
-            <input type="hidden" name="_subject" value="Novo contato pelo Portfólio — Design de Interiores" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-
+          <form action="#" method="POST" class="contact-form" id="contact-form">
             <div class="form-row">
               <div class="form-group">
                 <input type="text" name="nome" placeholder="Seu nome" aria-label="Seu nome" required />
@@ -108,10 +104,10 @@
 
             <div class="form-row">
               <div class="form-group">
-                <input type="tel" name="telefone" placeholder="Telefone / WhatsApp" aria-label="Telefone ou WhatsApp" />
+                <input type="tel" name="telefone" placeholder="Telefone / WhatsApp (opcional)" aria-label="Telefone ou WhatsApp" />
               </div>
               <div class="form-group">
-                <select name="assunto" aria-label="Assunto do atendimento">
+                <select name="assunto" aria-label="Assunto do atendimento" required>
                   <option value="">Selecione um assunto</option>
                   <option value="Consultoria de interiores">Consultoria de interiores</option>
                   <option value="Projeto completo">Projeto completo</option>
@@ -124,16 +120,13 @@
             </div>
 
             <div class="form-group">
-              <textarea name="mensagem" placeholder="Conte um pouco sobre o seu projeto" aria-label="Mensagem sobre o projeto" required></textarea>
+              <textarea name="mensagem" placeholder="Conte um pouco sobre o seu projeto (opcional)" aria-label="Mensagem sobre o projeto"></textarea>
             </div>
 
             <div class="form-actions">
               <button type="submit" class="btn" id="contact-submit-btn">
-                Enviar mensagem
-              </button>
-              <a href="https://bit.ly/3cHmS3p" target="_blank" rel="noopener" class="btn btn-secondary">
                 <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp
-              </a>
+              </button>
             </div>
 
             <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
@@ -176,6 +169,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

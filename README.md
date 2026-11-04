@@ -61,41 +61,6 @@ design-de-interiores/
 
 ---
 
-## ➕ Como Adicionar Novos Projetos
-
-Em `docs/projetos.html`, basta inserir uma nova `<section class="section project-detail-section">`. O script se encarrega de atualizar os contadores de categoria, criar o botão na barra de navegação rápida e alternar a cor de fundo automaticamente:
-
-```html
-<section class="section project-detail-section" id="id-do-projeto" data-category="residencial" data-title="Nome do Projeto">
-  <div class="container">
-    <div class="project-detail-header">
-      <div class="project-header-title">
-        <span class="section-kicker">Residencial</span>
-        <h2>Nome do Projeto</h2>
-      </div>
-      <div class="project-header-body">
-        <p class="project-description">Descrição breve sobre a proposta e atmosfera do projeto.</p>
-        <ul class="project-meta" aria-label="Ficha rápida do projeto">
-          <li><strong>Tipologia</strong> Residencial</li>
-          <li><strong>Ambientes</strong> Sala &amp; Cozinha</li>
-          <li><strong>Proposta</strong> Elegância &amp; Conforto</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Opções de grid: .gallery-grid-1, .gallery-grid-2, .gallery-grid-3, .gallery-grid-4, .gallery-grid-5, .gallery-grid-featured -->
-    <!-- Adicione .gallery-grid-portrait quando as imagens forem verticais -->
-    <div class="gallery-grid gallery-grid-2">
-      <article class="gallery-card image-only-card">
-        <img src="images/foto-01.webp" alt="Descrição da imagem" loading="lazy" />
-      </article>
-      <article class="gallery-card image-only-card">
-        <img src="images/foto-02.webp" alt="Descrição da imagem" loading="lazy" />
-      </article>
-    </div>
-  </div>
-</section>
-```
 
 ---
 

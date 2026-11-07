@@ -1,6 +1,6 @@
 # Fábio Lechinhoski — Design de Interiores & Visualização 3D
 
-Portfólio oficial de **Fábio Lechinhoski**, apresentando projetos de design de interiores residenciais e corporativos, além de soluções de **Render Fotorrealista** e **Sites Portfólio para Arquitetos e Designers**.
+Portfólio apresentando projetos de design de interiores residenciais e corporativos, além de soluções de **Render Fotorrealista** e **Sites Portfólio para Arquitetos e Designers**.
 
 🔗 **Acesse o site online:** [fabio-lechinhoski.github.io/design-de-interiores](https://fabio-lechinhoski.github.io/design-de-interiores/)
 
@@ -8,7 +8,7 @@ Portfólio oficial de **Fábio Lechinhoski**, apresentando projetos de design de
 
 ## ✨ Visão Geral
 
-O projeto foi desenvolvido com foco em **performance**, **minimalismo arquitetônico** e **experiência mobile**, utilizando tecnologias nativas (HTML5 semântico, CSS3 moderno e JavaScript Vanilla) para garantir carregamento instantâneo no GitHub Pages.
+O projeto foi desenvolvido com foco em **performance**, **minimalismo** e **experiência mobile**, utilizando tecnologias nativas (HTML5 semântico, CSS3 moderno e JavaScript Vanilla) para garantir carregamento instantâneo no GitHub Pages.
 
 ### Principais Funcionalidades
 - **Hero Editorial de Alto Impacto:** Apresentação visual com destaque de projeto e chamadas para ação (CTAs) diretas.

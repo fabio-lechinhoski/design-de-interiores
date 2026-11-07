@@ -1164,11 +1164,12 @@ nav a.active::after {
   font-size: 0.86rem;
 }
 
+.image-frame.profile-photo-frame,
 .profile-photo-frame {
-  width: min(360px, 100%);
-  aspect-ratio: 4 / 4.6;
-  min-height: auto;
-  margin-left: auto;
+  width: min(260px, 100%);
+  aspect-ratio: 4 / 4.5;
+  min-height: 0;
+  margin-inline: auto;
   border-radius: var(--radius-lg);
 }
 
@@ -1385,6 +1386,11 @@ nav a.active::after {
 
   .image-frame {
     min-height: 320px;
+  }
+
+  .image-frame.profile-photo-frame {
+    width: min(210px, 100%);
+    min-height: 0;
   }
 
   .btn {
